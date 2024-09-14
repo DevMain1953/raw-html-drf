@@ -1,0 +1,4 @@
+Django==4.0
+djangorestframework==3.12
+pytz==2024.2
+django-cors-headers==4.4.0
