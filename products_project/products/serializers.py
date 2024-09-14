@@ -3,6 +3,13 @@ from .models import Product
 
 
 class ProductSerializer(serializers.ModelSerializer):
+    description = serializers.CharField(required=True)
+
     class Meta:
         model = Product
         fields = ["id", "name", "description", "price"]
+
+    def validate_price(self, value):
+        if value <= 0:
+            raise serializers.ValidationError("Price must be a positive number.")
+        return value
